@@ -46,8 +46,25 @@ My list of Docker Images, and status below:
 |7|resin/raspberry-pi-alpine-python |latest |Based on resin.io, with Py.                      |[dockerhub](https://hub.docker.com/r/resin/raspberry-pi-alpine-python/)
 
 
+- So, is the chosen image: `resin/raspberry-pi-alpine-node:0.10.22-slim` ???
+
 ### What is resin.io ?
 
 resin is used in two images, from the company http://www.resin.io.
 
-- Think about moving image 3 - nodered across to alpine + node.js on resin: [reson-rpi-node](resin/raspberry-pi-alpine-node)
+Think about moving image 3 - nodered across to alpine + node.js on resin:
+
+- `resin/raspberry-pi-alpine-node`  
+  - latest: 457MB !!
+  - 0.10.22-slim : 64.6MB
+
+  > This image is part of the resin.io base image series for IoT devices. The image is optimized for use with resin.io and resinOS, but can be used in any Docker environment running on the appropriate architecture.  
+
+
+- or `resin/raspberrypi3-alpine` ?  for RPi Zero
+  - latest : 47.8MB    
+
+  > The bare bones Alpine Linux OS image for Raspberry Pi v1 & ZERO. Maintained by Resin.io.
+
+- for an IoT device: [arm64v8/alpine](https://hub.docker.com/r/arm64v8/alpine/)
+  > A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!
