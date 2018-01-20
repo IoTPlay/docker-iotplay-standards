@@ -1,0 +1,90 @@
+---
+# Maintained by jean@iotplay.org
+# Do on the tgt host (raspberrypi3 with stretch):
+# flash / sudo nano /etc/hostname / sudo nano /etc/hosts
+#  sudo apt-get update && sudo apt-get upgrade
+# -------------------------
+# install docker: https://iotbytes.wordpress.com/setting-up-docker-on-raspberry-pi-and-running-hello-world-container/
+# curl -sSL https://get.docker.com | sh
+# sudo usermod -aG docker pi
+# (You must Log off from Raspberry Pi and Login again, for this to take effect.)
+# docker run armhf/hello-world
+# -------------------------
+#  sudo apt install python-pip
+#  (sudo pip install --upgrade pip)
+#  pip install docker-py
+#  pip install docker-compose
+# ------------------------------------------------------
+# remember to have the ansible.cfg point to the right hosts file, where pitest is described.
+# run below from dir where the playbook is saved. Change the --tags cmdline to test each command.
+#   ansible-playbook 10_Test_docker-with-ansible.yml --tags="docker_service" --ask-pass
+
+- hosts: pitest
+  remote_user: pi
+
+  tasks:
+
+  - name:
+    apt:
+      name: "python-pip"
+      state: present
+
+  - name: pip install packages
+    pip:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - docker-py
+      - docker-compose
+    tags:
+      - docker_service
+
+  - name: Login to hub.docker.com
+    docker_login:
+      username: iotplay
+      password: Doc0!Couver
+      email: jean@iotplay.org
+      state: present
+    tags:
+      - docker_login
+
+  - name: pull Image hello world
+    docker_image:
+      name: "{{ item }}"
+      #tag: latest
+      state: present
+      #force: yes
+      timeout: 600
+    with_items:
+      - "armhf/hello-world"
+      - "iotplay/docker_nginx_arm"
+    tags:
+      - docker_image
+
+  - name: Create the Hello-World container
+    docker_container:
+      name: hello_world_test_container
+      image: hello-world
+      state: present #started/present
+    tags:
+      - docker_container
+
+  - name: Add docker_service for the proxy server
+    docker_service:
+      project_name: dbr #Short for Dabar, the prefix to the Services
+      definition:
+        version: '2'
+        services:
+          revproxy:      #this name will be appended to the project_name
+            image: iotplay/docker_nginx_arm
+            environment:
+              - SET_CONTAINER_TIMEZONE=true
+              - CONTAINER_TIMEZONE=Africa/Johannesburg
+            hostname: dbr_reverseproxy
+            #expose:
+            #  - "3306"
+            ports:
+              - "80:80"
+              - "443:443"
+    tags:
+      - docker_service
