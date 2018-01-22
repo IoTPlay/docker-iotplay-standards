@@ -41,9 +41,9 @@
 
   - name: Login to hub.docker.com
     docker_login:
-      username: iotplay
-      password: Doc0!Couver
-      email: jean@iotplay.org
+      username: <yourdockerhubuid>
+      password:<yourdockerhubpwd>
+      email: <yourdockerhubemail>
       state: present
     tags:
       - docker_login
