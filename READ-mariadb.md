@@ -3,11 +3,14 @@
 #### Initiation of Database for Dabar
 - Fix login of initial database, [mariadb](https://mariadb.com/kb/en/library/configuring-mariadb-for-remote-client-access/):
   - The my.cnf file must actually by `mariadb.cnf`, in the folder /etc/mysql, on the docker instance.
-  - add bind_address=0.0.0.0 to mariadb.cnf
+  - add bind_address=0.0.0.0 to mariadb.cnf,
+  - If using image **bianjp/mariadb-alpine**, then add this to ansible **env**:  `MYSQL_ALLOW_EMPTY_PASSWORD=yes`  
+  - After 1st startup this can be changed:
+
   - Login to DB server:
       - if on Docker `docker exec -it -containerid- sh`,
-      - `mysql -uroot -pWhatisthePassword01 dabar`
-      - `SELECT User, Host FROM mysql.user WHERE Host <> 'localhost';`
+      - `mysql -uroot `
+      - `SELECT User, Host FROM mysql.user WHERE Host <> 'localhost';` (to see if root is available)
       - `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'WhatisthePassword01' WITH GRANT OPTION;`
       - `flush privileges;`
 
