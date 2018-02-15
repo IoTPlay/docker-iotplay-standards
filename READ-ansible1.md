@@ -12,7 +12,7 @@
 
 - Generate a key: `ssh-keygen`
 - Copy the key to the target host: `ssh-copy-id target-host`,
-  - or, if the ports of ssh were already changed:, `ssh-copy-id -p2279 rouxmedia@rouxmedia -f`
+  - or, if the ports of ssh were already changed:, `ssh-copy-id -p2279 uid@hostname -f`
   - This you do at `sudo nano /etc/ssh/ssh_config`
 - Then install the latest version of ansible from git
 - Check the ansible version: `ansible --version`
@@ -49,7 +49,7 @@
 `  shell: creates=/home/pi/data then the command`
 
 ### e. Production Playbooks --------------------------
-Following the instructions to run the playbooks that are working on rhome network. Run all these commands from the ansible home directory, `./Documents/Cloud-PERS/iotplay/04_ansible`. It uses the hosts file in the 04_ansible directory:
+Following the instructions to run the playbooks that are working on home network. Run all these commands from the ansible home directory, `./folder/ansible`. It uses the hosts file in the ansible directory:
 - Upgrading debian o/s:
 
 >`ansible-playbook ./playbooks/debian-upgrade.yml`

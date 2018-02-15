@@ -11,7 +11,7 @@
       - if on Docker `docker exec -it -containerid- sh`,
       - `mysql -uroot `
       - `SELECT User, Host FROM mysql.user WHERE Host <> 'localhost';` (to see if root is available)
-      - `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'WhatisthePassword01' WITH GRANT OPTION;`
+      - `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'rootpassword' WITH GRANT OPTION;`
       - `flush privileges;`
 
   - Check if port `3306` is running: from db command line: `SHOW GLOBAL VARIABLES LIKE 'PORT'; ` or from Linux: `netstat -tlnp`
