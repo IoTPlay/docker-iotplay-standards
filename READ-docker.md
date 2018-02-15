@@ -76,7 +76,7 @@ Command examples:
   - $ docker push localhost:5000/my-ubuntu  
   - $ docker image remove ubuntu:16.04  
   - $ docker pull localhost:5000/my-ubuntu  
-  - listing repos `curl http://192.168.1.33:5000/v2/_catalog`
+  - listing repos `curl http://reghost:5000/v2/_catalog`
   - $ docker stop registry  
   - Now stop your registry and remove all data
     > docker stop -registry-container- && docker rm -v registry
