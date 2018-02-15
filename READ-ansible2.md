@@ -68,4 +68,4 @@ Blog for Docker Swarm in Ansible: [Docker Swarm blog](https://thisendout.com/201
     > export DOCKER_CLIENT_TIMEOUT=500   
       export COMPOSE_HTTP_TIMEOUT=500  
 
-  - Also try `export ANSIBLE_CONFIG="/Users/jean/Documents/GitHub/JR_Stacks/stack_for_mac/ansible/ans-menu"`
+  - Also try `export ANSIBLE_CONFIG="/your/folder/location"`
