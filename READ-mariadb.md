@@ -8,7 +8,7 @@
   - After 1st startup this can be changed:
 
   - Login to DB server:
-      - if on Docker `docker exec -it -containerid- sh`,
+      - if on Docker `docker exec -it dbr_mariadb_1 sh`,
       - `mysql -uroot `
       - `SELECT User, Host FROM mysql.user WHERE Host <> 'localhost';` (to see if root is available)
       - `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'rootpassword' WITH GRANT OPTION;`
