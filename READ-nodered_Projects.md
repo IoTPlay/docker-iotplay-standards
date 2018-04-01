@@ -26,6 +26,8 @@ In this example, we will start with local NodeRed flows which have lready been d
 - Step 6: Commit NodeRed Project to BitBucket
 - Step 7: Clone BitBucket repo to local Host
 - Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
+- Step 9: Use Ansible to clone the repo from BitBucket & Prepare NodeRed runtime
+- Step 10: Point local Mac docker instance back to the ~/Git_bitbucket folder
 
 #### Products used in this readme file
 
@@ -121,7 +123,7 @@ Once your SourceTree  [download SourceTree here](https://www.sourcetreeapp.com) 
   `~/Git_bitbucket/client_dbr/tmpl/dbr_nrc01/data/projects/master/`  
 - whilst I ensured the name is `dbr_nrc01-master`.  
 
-#### Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed on Runtime host
+#### Step 8: Prepare the ~/Git_bitbucket clone to reproduce NodeRed on Runtime host
 
 In order to prepare the clone to be used on a target host where NodeRed are to be started, some steps are required.   
 
@@ -133,7 +135,23 @@ Like getting the `settings.js` file into the repo. A good place to put files, is
 - On the next screen, choose the settings.js file, give a reason in the commit box at the bottom, I chose 'setup files added', and hit the `Commit` button.
 - If you now go back to Bitbucket, under the Source menu of the Repo, you will find the folder, and file/s cloned to it.
 
-Now you are ready for cloning the Repo to a production host, and copying the `flows.json` and other files to Docker instances.
+Now you are ready for cloning the Repo to a production host, and copying this template files, like `flows.json` and other files to Docker instances.  
+
+#### Step 9: Use Ansible to clone the repo from BitBucket & Prepare NodeRed runtime
+In this step, you can clone the runtime back to the Mac, or another host to test how it will run. I use the standard folder `~/dockerapps/`. Steps to do in Ansible:
+
+- git clone this repo to the target host under `~/.tmp/dbr_nrc01`
+- Create the runtime directory, `~/dockerapps/dbr_nrc01/data`
+- Copy the NodeRed files with Ansible from the `.tmp/dbr_nrc01` folder:
+
+  - `settings.js` --> `~/dockerapps/dbr_nrc01/data`
+  - `flows.json`  --> `~/dockerapps/dbr_nrc01/data/projects/master/`
+  - same for other files required for NodeRed.
+
+#### Step 10: Point local Mac docker instance back to the ~/Git_bitbucket folder
+Now that all files required to start-up the NodeRed files from the ~/Git_bitbucket folder, the `Dockerfile` used to startup the Mac NodeRed docker instance for `dbr_NRC01` can be pointed to the newly cloned folder.
+
+I have not tested this yet, but this is the next step I will test.
 
 ## Screens used in above examples
 
