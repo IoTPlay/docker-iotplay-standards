@@ -17,6 +17,16 @@ In this example, we will start with local NodeRed flows which have lready been d
 - NodeRed Projects feature - [NodeRed docs](https://nodered.org/docs/user-guide/projects/)
 - Setting up bitbucket ssh public key - [Atlasian](https://confluence.atlassian.com/bbkb/permission-denied-publickey-302811860.html)
 
+#### Steps in the ReadMe:
+- Step 1: Create NodeRed keys for remote repos
+- Step 2: Prepare the localhost ssh keys for use in steps 7 - SourceTree clone
+- Step 3: Configure a remote repo on Bitbucket
+- Step 4: Configure BitBucket repo
+- Step 5: Add the Remote Repo in NodeRed
+- Step 6: Commit NodeRed Project to BitBucket
+- Step 7: Clone BitBucket repo to local Host
+- Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
+
 #### Products used in this readme file
 
 - Docker
@@ -117,7 +127,7 @@ Once your SourceTree  [download SourceTree here](https://www.sourcetreeapp.com) 
 In order to prepare the clone to be used on a target host where NodeRed are to be started, some steps are required.   
 
 Like getting the `settings.js` file into the repo. A good place to put files, is in a sub-folder to the cloned folder, then it will be cloned as well, I chose `setup`.
-  
+
 - Go to the local cloned folder on your host in `Step 7` above, and add a folder `setup`
 - From the NodeRed server, under `/data`, copy `settings.js` into the `setup` folder.
 - In the SourceTree cloned copy screen, hit commit button, see `Screen 7`.
