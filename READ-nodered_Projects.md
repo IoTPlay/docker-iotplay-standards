@@ -36,7 +36,7 @@ In this example, we will start with local NodeRed flows which have lready been d
 
 ## Steps to configure ...  
 
-##### Step 1:  Create NodeRed keys for remote repos
+#### Step 1:  Create NodeRed keys for remote repos
 
 Setup a remote repo key in NodeRed:
 - From menu option:  
@@ -54,7 +54,7 @@ Setup a remote repo key in NodeRed:
     - __default_nodered_client_dbr
     - __default_nodered_client_dbr.pub  
 
-##### Step 2: Prepare the localhost ssh keys for use in steps 7 - SourceTree clone
+#### Step 2: Prepare the localhost ssh keys for use in steps 7 - SourceTree clone
 
 - Copy the above SSH keys created to your host .ssh key folder,  
   `cp <localNRfolder>/data/projects/.sshkeys/*.* ~/.ssh`  
@@ -67,7 +67,7 @@ Setup a remote repo key in NodeRed:
 - Test if the identity loaded with `ssh-add -l`.
 
 
-##### Step 3: Configure a remote repo on Bitbucket  
+#### Step 3: Configure a remote repo on Bitbucket  
 
 Create yourself a user on Bitbucket, in this example's case, the user is `iotplay`.
 
@@ -77,7 +77,7 @@ If, for instance, for the client `client_dbr`, the local NodeRed `template` fold
 
 Create a new Repository in Bitbucket with this name.
 
-##### Step 4: Configure BitBucket repo for xxx
+#### Step 4: Configure BitBucket repo for xxx
 
 - On the local host, get the public key in the clipboard:  
   `cat ~/.ssh/__default_nodered_client_dbr.pub | pbcopy`  
@@ -93,13 +93,13 @@ Create a new Repository in Bitbucket with this name.
   `https://iotplay@bitbucket.org/iotplay/client_dbr-tmpl-dbr_nrc01-prj.master.git`
 
 
-##### Step 5: Add the Remote Repo in NodeRed
+#### Step 5: Add the Remote Repo in NodeRed
 
 On NodeRed, menu `Project Settings > Settings > add remote` use the above url from Overview on Bitbucket, minus the username, add to `URL` on Screen 2: add remote (see below). Thus:  
 
 >URL: `https://bitbucket.org/iotplay/client_dbr-tmpl-dbr_nrc01-prj.master.git`, and hit `Add  Remote` button.
 
-##### Step 6: Commit NodeRed Project to BitBucket  
+#### Step 6: Commit NodeRed Project to BitBucket  
 
 Setup the remote branch:  
 - See screen 3 below, on menu: `Control Panel > history tab > Commit History`;  
@@ -112,7 +112,7 @@ Replicate the local NodeRed flows to the Remote:
 
 Confirm that the files reached the bitbucket, by viewing 'source' menu option under the Repo.  
 
-##### Step 7: Clone BitBucket repo to local Host
+#### Step 7: Clone BitBucket repo to local Host
 
 Once your SourceTree  [download SourceTree here](https://www.sourcetreeapp.com) is setup to read your BitBucket user, you can clone it to the local Mac, to for instance add folders (BitBucket cannot add folders otherwise)
 
@@ -121,7 +121,7 @@ Once your SourceTree  [download SourceTree here](https://www.sourcetreeapp.com) 
   `~/Git_bitbucket/client_dbr/tmpl/dbr_nrc01/data/projects/master/`  
 - whilst I ensured the name is `dbr_nrc01-master`.  
 
-##### Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
+#### Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
 
 In order to prepare the clone to be used on a target host where NodeRed are to be started, some steps are required.   
 
