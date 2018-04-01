@@ -2,7 +2,7 @@
 
 ### Introduction
 
-The new feature since NodeRed v0.18.3 Projects has lots of potential, for building NodeRed templates for multiple deploy, such as in the dabar case where many clients industrial water use are displayed in their own web client, but the NodeRed flows are the same.  
+The new feature since NodeRed v0.18.3 Projects has lots of potential, for building NodeRed templates for multiple deploy, such as in the iotplay case where more-than-one clients' use the same flows.  
 
 Herewith steps to configure it for the following use case:  
 - Develop on NodeRed, (on docker on Mac);  
@@ -51,8 +51,8 @@ Setup a remote repo key in NodeRed:
 
 - In NodeRed, the key are stored in folder:  
   `data/projects/.sshkeys`, with above name, the key names are:
-    - __default_nodered_client_dbr
-    - __default_nodered_client_dbr.pub  
+    - default_nodered_client_dbr
+    - default_nodered_client_dbr.pub  
 
 #### Step 2: Prepare the localhost ssh keys for use in steps 7 - SourceTree clone
 
