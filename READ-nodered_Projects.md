@@ -29,11 +29,10 @@ In this example, we will start with local NodeRed flows which have lready been d
 
 #### Products used in this readme file
 
-- Docker
 - NodeRed
 - BitBucket
 - SourceTree
-- Ansible
+- Docker & Ansible (later steps)
 
 ## Steps to configure ...  
 
