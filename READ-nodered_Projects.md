@@ -121,7 +121,7 @@ Once your SourceTree  [download SourceTree here](https://www.sourcetreeapp.com) 
   `~/Git_bitbucket/client_dbr/tmpl/dbr_nrc01/data/projects/master/`  
 - whilst I ensured the name is `dbr_nrc01-master`.  
 
-#### Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
+#### Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed on Runtime host
 
 In order to prepare the clone to be used on a target host where NodeRed are to be started, some steps are required.   
 
@@ -133,8 +133,9 @@ Like getting the `settings.js` file into the repo. A good place to put files, is
 - On the next screen, choose the settings.js file, give a reason in the commit box at the bottom, I chose 'setup files added', and hit the `Commit` button.
 - If you now go back to Bitbucket, under the Source menu of the Repo, you will find the folder, and file/s cloned to it.
 
+Now you are ready for cloning the Repo to a production host, and copying the `flows.json` and other files to Docker instances.
 
-### Screens used in Above examples
+## Screens used in above examples
 
 - NodeRed:
 
