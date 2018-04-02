@@ -24,7 +24,7 @@
 #### Using normal, and encrypted passwords
 
   - Directory structure in hosts directory:
-
+  ```
   .
   ├── . . .
   ├── group_vars/
@@ -32,7 +32,7 @@
   │       ├── vars
   │       └── vault
   └── . . .
-
+  ```
   - To check variables use of hosts:
    > `ansible -m debug -a 'var=hostvars[inventory_hostname]' database`
 
