@@ -160,6 +160,11 @@ Now that all files required to start-up the NodeRed files from the ~/Git_bitbuck
 
 I have not tested this yet, but this is the next step I will test.
 
+## Issues
+
+1. When credentials not sorted - when NodeRed starts, See Screen 8.
+    Dealing with credentials - [node-red wiki](https://github.com/node-red/node-red/wiki/Design%3A-Encryption-of-credentials)
+
 ## Screens used in above examples
 
 - NodeRed:
@@ -200,4 +205,8 @@ I have not tested this yet, but this is the next step I will test.
   - **Screen 7: Commit in SourceTree**  
 
       ![commit history](images/sourcetree_commit.png)  
+      .  
+  - **Screen 8: NodeRed - credentials**  
+
+      ![commit history](images/nodered_credentials.png)  
       .  
