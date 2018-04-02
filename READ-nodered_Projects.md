@@ -162,8 +162,41 @@ I have not tested this yet, but this is the next step I will test.
 
 ## Issues
 
-1. When credentials not sorted - when NodeRed starts, See Screen 8.
-    Dealing with credentials - [node-red wiki](https://github.com/node-red/node-red/wiki/Design%3A-Encryption-of-credentials)
+During the process I ran into several issues, here are the solutions.
+
+#### NodeRed:  
+
+1. **Issue 1: When credentials not sorted** - when NodeRed starts, See Screen 8.
+
+    **Solution 1: Dealing with credentials**
+
+    - [node-red wiki](https://github.com/node-red/node-red/wiki/Design%3A-Encryption-of-credentials)  
+    - [Stack overflow](https://stackoverflow.com/questions/48270905/node-red-node-credentials)  
+
+  Here are the steps you need to resolve this:
+
+    - edit your settings.js file and add a credentialSecret property with a whatever string value you want. If you want to disable encryption, set its value to false.  
+      `credentialSecret: "my-random-string"`
+    - Restart Node-RED and deploy a change - this will trigger Node-RED to re-encrypt your credentials with your chosen key (or disabling encryption if set to false).
+    - You can then copy your flow/credential file to a second instance, just make sure you give it the same credentialSecret value in its settings file.
+
+#### SourceTree (in sync with BitBucket)
+
+1. **Issue 1: Credentials issues when SourceTree pushes to Bitbucket**. When sync stops, and the error box reports the below:
+
+  ```
+  Pushing to git@bitbucket.org:iotplay/client_dbr-tmpl-dbr_nrp01-prj.master.git
+  git@bitbucket.org: Permission denied (publickey).
+  fatal: Could not read from remote repository.
+
+  Please make sure you have the correct access rights
+  and the repository exists.
+  Pushing to git@bitbucket.org:iotplay/client_dbr-tmpl-dbr_nrp01-prj.master.git
+  git@bitbucket.org: Permission denied (publickey).
+  fatal: Could not read from remote repository.
+  ```
+  **Solution 1: Step 2**   
+  Run `ssh-add ~/.ssh/__default_nodered_client_dbr`.
 
 ## Screens used in above examples
 
