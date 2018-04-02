@@ -163,12 +163,21 @@ I have not tested this yet, but this is the next step I will test.
 #### Step 11: Recreate a Runtime server
 As above, you can recreate a new runtime server from the bitbucket git clone. Rough steps (to be reworked still):  
 
+##### Through cloning & restoring all
 1. git clone the dbr_images repo into  dockerapps/
 2. git clone from bitbucket into target host of the repo nrp101 to dockerapps/nrp101/data/projects/master
 3. create directory dockerapps/nrp101/data/projects/.sshkeys
 4. add back the keys that was created, `__default_client_dbr_NR` and the .pub (thus save it, and get it back !)
 5. copy the settings.js from the repo (which we put their to use it) to /data
 6. copy the .config.json back to /data (thus save it, and get it back ! - maybe also into the repo?)
+7. None of this will automatically restore the /data/node_modules as required by the /data/projects/master/package.json file, thus open the NR website /admin, and load the missing modules, see `screen 9`
+
+- or -
+##### Via fresh new project, then add files from cloning back
+1. Start a fresh server, with the Projects option in the settings.js file
+2. Migrate to projects, master project
+3. After cloning to maybe master02 folder, copy into /projects/master the `flow.json, flow_cred.json, package.json`, moave `settings.js` into /data
+4. Recreate linkup to remote, recreate ssh keys, re-apply to bitbucket.
 
 ## Issues
 
@@ -261,3 +270,7 @@ During the process I ran into several issues, here are the solutions.
 
       ![commit history](images/nodered_credentials.png)  
       .  
+  - **Screen 9: NodeRed - Projects dependencies**
+
+      ![Screen 9](images/nodered_projectsdependencies.png)  
+      .
