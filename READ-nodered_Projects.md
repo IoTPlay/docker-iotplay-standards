@@ -176,7 +176,7 @@ As above, you can recreate a new runtime server from the bitbucket git clone. Ro
 ##### Via fresh new project, then add files from cloning back
 1. Start a fresh server, with the Projects option in the settings.js file
 2. Migrate to projects, master project
-3. After cloning to maybe master02 folder, copy into /projects/master the `flow.json, flow_cred.json, package.json`, moave `settings.js` into /data
+3. After cloning to maybe master02 folder, copy into /projects/master the `flow.json, flow_cred.json, package.json`, move `settings.js` into /data
 4. Recreate linkup to remote, recreate ssh keys, re-apply to bitbucket.
 
 ## Issues
