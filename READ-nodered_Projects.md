@@ -178,7 +178,15 @@ During the process I ran into several issues, here are the solutions.
     - edit your settings.js file and add a credentialSecret property with a whatever string value you want. If you want to disable encryption, set its value to false.  
       `credentialSecret: "my-random-string"`
     - Restart Node-RED and deploy a change - this will trigger Node-RED to re-encrypt your credentials with your chosen key (or disabling encryption if set to false).
-    - You can then copy your flow/credential file to a second instance, just make sure you give it the same credentialSecret value in its settings file.
+    - You can then copy your flow/credential file to a second instance, just make sure you give it the same credentialSecret value in its settings file.  
+
+
+2. **Issue 2: Using Projects or not on Runtime server**. I thought it would be a workable solution to do the Projects-type setup on the Mac, and without Projects on the Runtime server. One can do this with 2 different `settings.js` files.
+
+  **Solution 2: Projects on runtime server.** After experimenting with this, it seams it is best to use Projects on the Runtime server as well, (for now - until the runtime feature is available on NR). Reasons are:  
+
+  - With Projects, one can add packages required in packages.json, and does not need to do this at Container creation stage.
+  - Thus, `Projects` - and the file structure - on the Runtime server as well.
 
 #### SourceTree (in sync with BitBucket)
 
