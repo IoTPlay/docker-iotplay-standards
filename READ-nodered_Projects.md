@@ -160,6 +160,16 @@ Now that all files required to start-up the NodeRed files from the ~/Git_bitbuck
 
 I have not tested this yet, but this is the next step I will test.
 
+#### Step 11: Recreate a Runtime server
+As above, you can recreate a new runtime server from the bitbucket git clone. Rough steps (to be reworked still):  
+
+1. git clone the dbr_images repo into  dockerapps/
+2. git clone from bitbucket into target host of the repo nrp101 to dockerapps/nrp101/data/projects/master
+3. create directory dockerapps/nrp101/data/projects/.sshkeys
+4. add back the keys that was created, `__default_client_dbr_NR` and the .pub (thus save it, and get it back !)
+5. copy the settings.js from the repo (which we put their to use it) to /data
+6. copy the .config.json back to /data (thus save it, and get it back ! - maybe also into the repo?)
+
 ## Issues
 
 During the process I ran into several issues, here are the solutions.
