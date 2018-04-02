@@ -36,10 +36,17 @@ In this example, we will start with local NodeRed flows which have lready been d
 - SourceTree
 - Docker & Ansible (later steps)
 
+#### Assumptions
+
+Several assumptions have been used for this readme:
+- You have got Projects up and running, see instructions on [NodeRed docs](https://nodered.org/docs/user-guide/projects/)
+
+
 ## Steps to configure ...  
 
 #### Step 1:  Create NodeRed keys for remote repos
 
+If you use Docker to start the NodeRed flows - already got Projects working, start it now, and access the admin client.
 Setup a remote repo key in NodeRed:
 - From menu option:  
   `Project Settings > Settings > add remote`  

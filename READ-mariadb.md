@@ -5,19 +5,20 @@
   - The my.cnf file must actually by `mariadb.cnf`, in the folder /etc/mysql, on the docker instance.
   - add bind_address=0.0.0.0 to mariadb.cnf,
   - If using image **bianjp/mariadb-alpine**, then add this to ansible **env**:  `MYSQL_ALLOW_EMPTY_PASSWORD=yes`  
-  - After 1st startup this can be changed:
+    - After 1st startup this can be changed:
 
-  - Login to DB server:
+  - To setup root password, 1st time - Login to DB server:
       - if on Docker `docker exec -it dbr_mariadb_1 sh`,
       - `mysql -uroot `
       - `SELECT User, Host FROM mysql.user WHERE Host <> 'localhost';` (to see if root is available)
       - `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'rootpassword' WITH GRANT OPTION;`
       - `flush privileges;`
+  - To check GRANTS: `show grants for 'root'@'%' ;`
 
   - Check if port `3306` is running: from db command line: `SHOW GLOBAL VARIABLES LIKE 'PORT'; ` or from Linux: `netstat -tlnp`
-
+  
   - with NodeRed connected to the mariadb via a 'link', the host field on nodered is the container name `dbr_mariadb_1`
-  - To check GRANTS: `show grants for 'root'@'%' ;`
+
 
 #### HowTo's
 - Checking the version, log into the client, or just do an SQL call. `SELECT VERSION() ; `
