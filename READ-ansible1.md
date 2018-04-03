@@ -48,7 +48,7 @@
 >`- name: "Removing a file if it exist"`   
 `  shell: creates=/home/pi/data then the command`
 
-### e. Production Playbooks --------------------------
+### e. Production Playbooks --
 Following the instructions to run the playbooks that are working on home network. Run all these commands from the ansible home directory, `./folder/ansible`. It uses the hosts file in the ansible directory:
 - Upgrading debian o/s:
 
@@ -124,12 +124,6 @@ From [ansible Rough Guide](http://zenpackers.readthedocs.io/en/latest/ansible.ht
     Ansible first searches the local project for a role, then searches the roles_path. You can specify multiple paths by separating them with colons.
 
 
-## 1. ansible-container
-
-- Instructions [ansible-container](https://docs.ansible.com/ansible-container/installation.html)
-- Installing `sudo -H pip install ansible-container[docker]`
-- Using ansible-container to build your next application base image: [codementor blog](https://www.codementor.io/slavko/using-ansible-container-to-build-your-next-application-base-image-c4eq2ise1)
-
 #### b. Ansible Module list
 [module list](http://docs.ansible.com/ansible/latest/modules_by_category.html)
 
@@ -158,3 +152,44 @@ From [ansible Rough Guide](http://zenpackers.readthedocs.io/en/latest/ansible.ht
 ## 1. Ansible variables
 
 - Intro to ansible variables: [liquidat blog](https://liquidat.wordpress.com/2016/01/26/howto-introduction-to-ansible-variables/)
+
+---
+## General Ansible HowTo & Tips. Dealing with Errors
+
+This general howto and tips to be moved to a central folder, move it around as we work.
+
+### Insanely Complete playbooks
+
+- Commented playbook [github phred](https://gist.github.com/phred/2897937)
+
+### General tips and tricks
+
+- To get the version of ansible, which cfg, and which hosts file: `ansible --version`
+- Different env variables per task:
+  - Setting per Task only: [stackoverflow](https://stackoverflow.com/questions/27733511/how-to-set-linux-environment-variables-with-ansible)
+  - [examples](https://github.com/ansible/ansible-examples/blob/master/language_features/environment.yml)
+  - [another one](https://gist.github.com/davejamesmiller/44e5c418c8a3b5f691a64d83fbdbe3d1)
+- Dealing with localhost: [tricks of the trade blog](http://www.tricksofthetrades.net/2017/10/02/ansible-local-playbooks/) and [pickle blog](http://ansible.pickle.io/post/86598332429/running-ansible-playbook-in-localhost)
+  - sudo vim /etc/ansible/hosts
+  - what worked, put the following in the playbook:
+     - hosts: 127.0.0.1  
+        connection: local
+
+
+#### Only running subset of tasks in a Playbook
+
+> tasks:
+
+> ```
+> - yum: name={{ item }} state=installed
+>   with_items:
+>      - httpd
+>      - memcached
+>   tags:
+>      - packages
+> - template: src=templates/src.j2 dest=/etc/foo.conf
+>   tags:
+>      - configuration
+> ```
+
+`ansible-playbook example.yml --tags "configuration,packages"`

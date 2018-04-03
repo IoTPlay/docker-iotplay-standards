@@ -1,4 +1,4 @@
-## Setting up Ansible on RPi
+# Setting up Ansible on RPi
 
 https://arnesonium.com/2016/11/installing-ansible-2-2-0-on-a-raspberry-pi/
 
@@ -13,6 +13,12 @@ https://arnesonium.com/2016/11/installing-ansible-2-2-0-on-a-raspberry-pi/
     make deb
 
 - See web instructions
+
+## Linux User management
+
+### Manage the same users accross servers
+- [thornelabs blog](https://thornelabs.net/2014/04/19/ansible-manage-the-same-users-across-servers-with-different-passwords.html)
+
 
 ###---- not working ----
 #### Installing on RPi

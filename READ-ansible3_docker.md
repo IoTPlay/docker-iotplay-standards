@@ -1,3 +1,42 @@
+# Ansible for docker
+
+## 1. ansible-container General
+
+- Instructions [ansible-container](https://docs.ansible.com/ansible-container/installation.html)
+- Installing `sudo -H pip install ansible-container[docker]`
+- Using ansible-container to build your next application base image: [codementor blog](https://www.codementor.io/slavko/using-ansible-container-to-build-your-next-application-base-image-c4eq2ise1)
+
+- docker containers: [module](http://docs.ansible.com/ansible/latest/docker_container_module.html)
+- When running ansible playbook for docker_images, and you get `unauthorized: incorrect username or password`, then `docker login`
+
+### Ansible Docker Swarms (does not work...)
+
+Blog for Docker Swarm in Ansible: [Docker Swarm blog](https://thisendout.com/2016/09/13/deploying-docker-swarm-with-ansible/), with files here: [github](https://github.com/nextrevision/ansible-swarm-playbook)
+
+- Determine the status of the swarm cluster
+- Optionally bootstrap a cluster
+- Retrieve the join tokens
+- Join manager nodes
+- Join worker nodes
+
+### Ansible Docker issues
+
+
+## Swarm support
+- Ansible does not support swarm, or stack mode yet. (Dec'17)  
+  - a work around is to deploy a docker-compose which has the swarm def in it. [roles for docker swarm](https://github.com/atosatto/ansible-dockerswarm)
+  - And, understanding the stack: [jmkael docker stack blog](http://jmkhael.io/deploy-swarm-services-with-the-new-docker-stack-and-a-compose-file-2/)
+  - I have issues with local host, solution: [github issue](https://github.com/ansible/ansible/issues/33132)  
+
+
+- ansible "msg": "Error starting project UnixHTTPConnectionPool(host='localhost', port=None): Read timed out. (read timeout=60)"}   
+  - Same issue, solution [github](https://github.com/ansible/ansible-container/issues/147). Do this on docker host:
+    > export DOCKER_CLIENT_TIMEOUT=500   
+      export COMPOSE_HTTP_TIMEOUT=500  
+
+  - Also try `export ANSIBLE_CONFIG="/your/folder/location"`
+
+----------------
 ## Ansible in a CONTAINER
 
 Instructions on installing Ansible Container [docs.ansible](https://docs.ansible.com/ansible-container/installation.html#getting-ansible-container)
