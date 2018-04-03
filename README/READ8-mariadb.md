@@ -1,5 +1,7 @@
 ## General MariaDB Help and HowTo's
 
+Back to the README file with the [Table of Contents](../README.md).
+
 #### Initiation of Database for Dabar
 - Fix login of initial database, [mariadb](https://mariadb.com/kb/en/library/configuring-mariadb-for-remote-client-access/):
   - The my.cnf file must actually by `mariadb.cnf`, in the folder /etc/mysql, on the docker instance.
@@ -16,7 +18,7 @@
   - To check GRANTS: `show grants for 'root'@'%' ;`
 
   - Check if port `3306` is running: from db command line: `SHOW GLOBAL VARIABLES LIKE 'PORT'; ` or from Linux: `netstat -tlnp`
-  
+
   - with NodeRed connected to the mariadb via a 'link', the host field on nodered is the container name `dbr_mariadb_1`
 
 
