@@ -9,7 +9,7 @@ Links to several README files:
 |1| Docker Images used in IoTPlay                        |[link](README/READ-iotplay-dockerimages.md)
 |2| Ansible - General                                    |[link](README/READ1-ansible.md)
 |3| Ansible Vault: how to deal with secrets              |[link](README/READ2-ansible-vault.md)
-|4| Ansible Docker: managing docker                      |[link](readme/READ3-ansible_docker.md)
+|4| Ansible Docker: managing docker                      |[link](README/READ3-ansible_docker.md)
 |5| Ansible on Raspberry Pi                              |[link](README/READ4-ansible_rpi.md)
 |6| Running IoTPlay on Raspberry Pi - instructions       |[link](README/READ5-RPi.md)
 |7| Docker - shortcuts, command, howto's                 |[link](README/READ5-RPi.md)
