@@ -1,8 +1,8 @@
-## Working with Node-RED Projects AND remote repos
+# Working with Node-RED Projects AND remote repos
 
 ---> Back to the README file with the [Table of Contents](../README.md).
 
-### Introduction
+## Introduction
 
 The new feature since Node-RED v0.18.3 Projects has lots of potential, for building Node-RED templates for multiple deploy, such as in the iotplay case where more-than-one clients' use the same flows.  
 
@@ -44,7 +44,7 @@ In this example, we will start with local Node-RED flows which have already been
 Several assumptions have been used for this readme:
 - You have got Projects up and running, see instructions on [Node-RED docs](https://nodered.org/docs/user-guide/projects/)
 
-
+---
 ## Steps to configure ...  
 
 #### Step 1:  Create Node-RED keys for remote repos
@@ -175,13 +175,25 @@ As above, you can recreate a new runtime server from the bitbucket git clone. Ro
 6. copy the .config.json back to /data (thus save it, and get it back ! - maybe also into the repo?)
 7. None of this will automatically restore the /data/node_modules as required by the /data/projects/master/package.json file, thus open the NR website /admin, and load the missing modules, see `screen 9`
 
-- or -
+'- or -'
 ##### Via fresh new project, then add files from cloning back
 1. Start a fresh server, with the Projects option in the settings.js file
 2. Migrate to projects, master project
 3. After cloning to maybe master02 folder, copy into /projects/master the `flow.json, flow_cred.json, package.json`, move `settings.js` into /data
 4. Recreate linkup to remote, recreate ssh keys, re-apply to bitbucket.
 
+So, in summary the files to be recreated for the runtime server, and location - which will be mapped to the docker container's volume:
+```
+- /data/settings.js
+- /data/projects/master/.git          ...(& the repo's .git sub-dirs)
+- /data/projects/master/flow.json
+- /data/projects/master/flow_cred.json
+- /data/projects/master/package.json
+- /data/projects/.sshkeys/__default_client_dbr_NR
+- /data/projects/.sshkeys/__default_client_dbr_NR.pub
+```
+
+---
 ## Issues
 
 During the process I ran into several issues, here are the solutions.
@@ -228,6 +240,7 @@ During the process I ran into several issues, here are the solutions.
   **Solution 1: Step 2**   
   Run `ssh-add ~/.ssh/__default_nodered_client_dbr`.
 
+---
 ## Screens used in above examples
 
 - Node-RED:
