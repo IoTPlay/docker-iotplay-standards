@@ -98,9 +98,19 @@ From [docs.ansible.com playbooks tips and tricks](http://docs.ansible.com/ansibl
 From [ansible Rough Guide](http://zenpackers.readthedocs.io/en/latest/ansible.html)
 
 
+### g. Ansible Module list
+[module list](http://docs.ansible.com/ansible/latest/modules_by_category.html)
+
+### h. Installing ansible
+
+- Installing: `sudo pip install ansible`
+- Upgrading: `sudo pip install ansible --upgrade`
+
+---------------
+
 ## 2. Ansible-Galaxy
 
-#### a. Installing from ansible-galaxy
+### Installing from ansible-galaxy
 
 - Galaxy landing page [galaxy.ansible.com](https://galaxy.ansible.com)
   - Install a role: `$ ansible-galaxy install username.rolename`
@@ -126,45 +136,41 @@ From [ansible Rough Guide](http://zenpackers.readthedocs.io/en/latest/ansible.ht
     Ansible first searches the local project for a role, then searches the roles_path. You can specify multiple paths by separating them with colons.
 
 
-#### b. Ansible Module list
-[module list](http://docs.ansible.com/ansible/latest/modules_by_category.html)
+## 3. Ansible - managing directories on the host
 
-### Installing ansible
-
-- Installing: `sudo pip install ansible`
-- Upgrading: `sudo pip install ansible --upgrade`
-
-### Ansible Variables
-
-- [nested variables blog](http://blog.v-studios.com/2014/08/nested-variable-inheritance-with.html)
-
-## 2. Ansible - managing directories on the host
-
+### a. Directories
 - Creating a directory, with owner & gp, and if 1+ directories, recurse mode.
 
-  >- name: Creates directory   
-. . file:  
-. . . path: /src/www  
-. . . state: directory  
-. . . owner: www-data   
-. . . group: www-data   
-. . . mode: 0775  
-. . . recurse: yes   
+  ```
+    - name: Creates directory   
+      file:  
+        path: /src/www  
+        state: directory  
+        owner: www-data   
+        group: www-data   
+        mode: 0775  
+        recurse: yes   
+  ```
 
-## 1. Ansible variables
+### b. Ansible variables
 
 - Intro to ansible variables: [liquidat blog](https://liquidat.wordpress.com/2016/01/26/howto-introduction-to-ansible-variables/)
+- [nested variables blog](http://blog.v-studios.com/2014/08/nested-variable-inheritance-with.html)
+- Variables received from the ansible command line.
+```
+ansible-playbook release.yml --extra-vars "version=1.23.45 other_variable=foo"
+```
 
 ---
 ## General Ansible HowTo & Tips. Dealing with Errors
 
 This general howto and tips to be moved to a central folder, move it around as we work.
 
-### Insanely Complete playbooks
+### a. Insanely Complete playbooks
 
 - Commented playbook [github phred](https://gist.github.com/phred/2897937)
 
-### General tips and tricks
+### b. General tips and tricks
 
 - To get the version of ansible, which cfg, and which hosts file: `ansible --version`
 - Different env variables per task:
