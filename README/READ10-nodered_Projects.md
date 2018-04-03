@@ -193,7 +193,7 @@ During the process I ran into several issues, here are the solutions.
     **Solution 1: Dealing with credentials**
 
     - [node-red wiki](https://github.com/node-red/node-red/wiki/Design%3A-Encryption-of-credentials)  
-    - [Stack overflow](https://stackoverflow.com/questions/48270905/node-red-node-credentials)  
+    - [Stack overflow](https://stackoverflow.com/questions/48270905/node-red-node-credentials) by Nick O'Leary.
 
   Here are the steps you need to resolve this:
 
@@ -273,7 +273,7 @@ During the process I ran into several issues, here are the solutions.
       .  
 
 - NodeRed:
- 
+
   - **Screen 8: NodeRed - credentials**  
 
       ![commit history](images/nodered_credentials.png)  
