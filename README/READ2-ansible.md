@@ -62,7 +62,7 @@ Following the instructions to run the playbooks that are working on home network
 - List the facts of remote hosts gathered: `ansible all -m setup --tree /tmp/facts`
 - About gather_facts [data essential](https://www.data-essential.com/ansible-how-to-collect-information-about-remote-hosts-with-gathers-facts/)
 
-**From [liquidat](https://liquidat.wordpress.com/2016/02/29/useful-options-ansible-cli/) **
+** From [liquidat](https://liquidat.wordpress.com/2016/02/29/useful-options-ansible-cli/) **
 - Listing affected hosts: `ansible-playbook --list-hosts playbook.yml`  
 - List tasks            : `ansible-playbook --list-tasks playbook.yml`  
 - List all tags         : `ansible-playbook --list-tags  playbook.yml`  
@@ -70,7 +70,7 @@ Following the instructions to run the playbooks that are working on home network
 - Tasks step by step    : `ansible-playbook --step       playbook.yml`  
 - Showing diffs         : `ansible-playbook --diff       playbook.yml`  
 
-**From [github andreicristianpetcu: An Ansible Summary:](https://gist.github.com/andreicristianpetcu/b892338de279af9dac067891579cad7d) **  
+** From [github andreicristianpetcu: An Ansible Summary:](https://gist.github.com/andreicristianpetcu/b892338de279af9dac067891579cad7d) **  
 - Config files  
 - Patterns & Hosts files  
 - Variables files  
@@ -185,7 +185,7 @@ This general howto and tips to be moved to a central folder, move it around as w
         connection: local
 
 
-#### Only running subset of tasks in a Playbook
+### c. Only running subset of tasks in a Playbook
 
 > tasks:
 
@@ -202,5 +202,40 @@ This general howto and tips to be moved to a central folder, move it around as w
 > ```
 
 `ansible-playbook example.yml --tags "configuration,packages"`
+
+### d. Remote to Remote copy cannot recurse into a directory - work-around
+
+```
+# Copy all files and directories from /usr/share/easy-rsa to /etc/easy-rsa
+
+- name: List files in /usr/share/easy-rsa
+  find:
+    path: /usr/share/easy-rsa
+    recurse: yes
+    file_type: any
+  register: find_result
+
+- name: Create the directories
+  file:
+    path: "{{ item.path | regex_replace('/usr/share/easy-rsa','/etc/easy-rsa') }}"
+    state: directory
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ find_result.files }}"
+  when:
+    - item.isdir
+
+- name: Copy the files
+  copy:
+    src: "{{ item.path }}"
+    dest: "{{ item.path | regex_replace('/usr/share/easy-rsa','/etc/easy-rsa') }}"
+    remote_src: yes
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ find_result.files }}"
+  when:
+    - item.isdir == False
+```
+
 
 ---> Back to the README file with the [Table of Contents](../README.md).
