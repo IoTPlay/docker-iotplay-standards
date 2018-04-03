@@ -30,6 +30,7 @@ In this example, we will start with local NodeRed flows which have lready been d
 - Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
 - Step 9: Use Ansible to clone the repo from BitBucket & Prepare NodeRed runtime
 - Step 10: Point local Mac docker instance back to the ~/Git_bitbucket folder
+- Step 11: Recreate a Runtime server
 
 #### Products used in this readme file
 
