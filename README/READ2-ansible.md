@@ -32,6 +32,7 @@
 - Get entries from name service switch libs:   
 `ansible -m shell -a 'getent passwd | grep pi' all`
 - Check O/S of hosts: `ansible all -a "cat /etc/issue.net"`
+- ansible atlanta -m copy -a "src=/etc/hosts dest=/tmp/hosts"
 
 ### c. Roles & Playbooks
 - What is a **role**? 'a list of commands executed in order on the target host.'
