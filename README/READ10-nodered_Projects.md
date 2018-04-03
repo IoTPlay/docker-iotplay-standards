@@ -1,40 +1,40 @@
-## Working with NodeRed Projects AND remote repos
+## Working with Node-RED Projects AND remote repos
 
 ---> Back to the README file with the [Table of Contents](../README.md).
 
 ### Introduction
 
-The new feature since NodeRed v0.18.3 Projects has lots of potential, for building NodeRed templates for multiple deploy, such as in the iotplay case where more-than-one clients' use the same flows.  
+The new feature since Node-RED v0.18.3 Projects has lots of potential, for building Node-RED templates for multiple deploy, such as in the iotplay case where more-than-one clients' use the same flows.  
 
 Herewith steps to configure it for the following use case:  
-- Develop on NodeRed, (on docker on Mac);  
-- Commit changes in a NodeRed 'Project' to local git under NodeRed;  
+- Develop on Node-RED, (on docker on Mac);  
+- Commit changes in a Node-RED 'Project' to local git under Node-RED;  
 - then to do a remote commit to git on bitbucket (you can have private repo's, unlike on github, but any git repo will work);  
-- and lastly to use Ansible to deploy the runtime, and a bash script to unpack the NodeRed code to the folders of each of the clients.  
+- and lastly to use Ansible to deploy the runtime, and a bash script to unpack the Node-RED code to the folders of each of the clients.  
 
-In this example, we will start with local NodeRed flows which have lready been developed, create the remote rpos, and pushing these to the remote.
+In this example, we will start with local Node-RED flows which have already been developed, create the remote repository, and pushing these to the remote.
 
 #### Links to useful info on Projects, and Bitbucket
 
-- NodeRed Projects feature - [NodeRed docs](https://nodered.org/docs/user-guide/projects/)
+- Node-RED Projects feature - [Node-RED docs](https://nodered.org/docs/user-guide/projects/)
 - Setting up bitbucket ssh public key - [Atlasian](https://confluence.atlassian.com/bbkb/permission-denied-publickey-302811860.html)
 
 #### Steps in the ReadMe:
-- Step 1: Create NodeRed keys for remote repos
+- Step 1: Create Node-RED keys for remote repos
 - Step 2: Prepare the localhost ssh keys for use in steps 7 - SourceTree clone
 - Step 3: Configure a remote repo on Bitbucket
 - Step 4: Configure BitBucket repo
-- Step 5: Add the Remote Repo in NodeRed
-- Step 6: Commit NodeRed Project to BitBucket
+- Step 5: Add the Remote Repo in Node-RED
+- Step 6: Commit Node-RED Project to BitBucket
 - Step 7: Clone BitBucket repo to local Host
-- Step 8: Prepare the ../Git_bitbucket clone to reproduce NodeRed
-- Step 9: Use Ansible to clone the repo from BitBucket & Prepare NodeRed runtime
+- Step 8: Prepare the ../Git_bitbucket clone to reproduce Node-RED
+- Step 9: Use Ansible to clone the repo from BitBucket & Prepare Node-RED runtime
 - Step 10: Point local Mac docker instance back to the ~/Git_bitbucket folder
 - Step 11: Recreate a Runtime server
 
 #### Products used in this readme file
 
-- NodeRed
+- Node-RED
 - BitBucket
 - SourceTree
 - Docker & Ansible (later steps)
@@ -42,15 +42,15 @@ In this example, we will start with local NodeRed flows which have lready been d
 #### Assumptions
 
 Several assumptions have been used for this readme:
-- You have got Projects up and running, see instructions on [NodeRed docs](https://nodered.org/docs/user-guide/projects/)
+- You have got Projects up and running, see instructions on [Node-RED docs](https://nodered.org/docs/user-guide/projects/)
 
 
 ## Steps to configure ...  
 
-#### Step 1:  Create NodeRed keys for remote repos
+#### Step 1:  Create Node-RED keys for remote repos
 
-If you use Docker to start the NodeRed flows - already got Projects working, start it now, and access the admin client.
-Setup a remote repo key in NodeRed:
+If you use Docker to start the Node-RED flows - already got Projects working, start it now, and access the admin client.
+Setup a remote repo key in Node-RED:
 - From menu option:  
   `Project Settings > Settings > add remote`  
   'Allows you to create secure connections to remote git repositories.'  
@@ -61,10 +61,10 @@ Setup a remote repo key in NodeRed:
   - Passphrase: eight characters   
 
 
-- In NodeRed, the key are stored in folder:  
+- In Node-RED, the key are stored in folder:  
   `data/projects/.sshkeys`, with above name, the key names are:
-    - default_nodered_client_dbr
-    - default_nodered_client_dbr.pub  
+    - default_Node-RED_client_dbr
+    - default_Node-RED_client_dbr.pub  
 
 #### Step 2: Prepare the localhost ssh keys for use in steps 7 - SourceTree clone
 
@@ -83,7 +83,7 @@ Setup a remote repo key in NodeRed:
 
 Create yourself a user on Bitbucket, in this example's case, the user is `iotplay`.
 
-If, for instance, for the client `client_dbr`, the local NodeRed `template` folder, for the client template NodeRed flows `NRC01` with a project name `master`, the repo name on bitbucket should be:  
+If, for instance, for the client `client_dbr`, the local Node-RED `template` folder, for the client template Node-RED flows `NRC01` with a project name `master`, the repo name on bitbucket should be:  
 
 `/client_dbr/tmpl/dbr_NRC01/Prj.master`
 
@@ -105,20 +105,20 @@ Create a new Repository in Bitbucket with this name.
   `https://iotplay@bitbucket.org/iotplay/client_dbr-tmpl-dbr_nrc01-prj.master.git`
 
 
-#### Step 5: Add the Remote Repo in NodeRed
+#### Step 5: Add the Remote Repo in Node-RED
 
-On NodeRed, menu `Project Settings > Settings > add remote` use the above url from Overview on Bitbucket, minus the username, add to `URL` on Screen 2: add remote (see below). Thus:  
+On Node-RED, menu `Project Settings > Settings > add remote` use the above url from Overview on Bitbucket, minus the username, add to `URL` on Screen 2: add remote (see below). Thus:  
 
 >URL: `https://bitbucket.org/iotplay/client_dbr-tmpl-dbr_nrc01-prj.master.git`, and hit `Add  Remote` button.
 
-#### Step 6: Commit NodeRed Project to BitBucket  
+#### Step 6: Commit Node-RED Project to BitBucket  
 
 Setup the remote branch:  
 - See screen 3 below, on menu: `Control Panel > history tab > Commit History`;  
 - Click on the up/down arrows;  
 - A screen, see `Screen 4` will pop up, under 'Authentication required for repository:', add the Username and Password of your Bitbucket account.
 
-Replicate the local NodeRed flows to the Remote:
+Replicate the local Node-RED flows to the Remote:
   - Some conflicts might show up if you have a local readme.md already, solve these.
   - Choose the origin/mast as branch, tick the `set as upstrem master`, and hit `push` button to clone to remote.
 
@@ -133,33 +133,33 @@ Once your SourceTree  [download SourceTree here](https://www.sourcetreeapp.com) 
   `~/Git_bitbucket/client_dbr/tmpl/dbr_nrc01/data/projects/master/`  
 - whilst I ensured the name is `dbr_nrc01-master`.  
 
-#### Step 8: Prepare the ~/Git_bitbucket clone to reproduce NodeRed on Runtime host
+#### Step 8: Prepare the ~/Git_bitbucket clone to reproduce Node-RED on Runtime host
 
-In order to prepare the clone to be used on a target host where NodeRed are to be started, some steps are required.   
+In order to prepare the clone to be used on a target host where Node-RED are to be started, some steps are required.   
 
 Like getting the `settings.js` file into the repo. A good place to put files, is in a sub-folder to the cloned folder, then it will be cloned as well, I chose `setup`.
 
 - Go to the local cloned folder on your host in `Step 7` above, and add a folder `setup`
-- From the NodeRed server, under `/data`, copy `settings.js` into the `setup` folder.
+- From the Node-RED server, under `/data`, copy `settings.js` into the `setup` folder.
 - In the SourceTree cloned copy screen, hit commit button, see `Screen 7`.
 - On the next screen, choose the settings.js file, give a reason in the commit box at the bottom, I chose 'setup files added', and hit the `Commit` button.
 - If you now go back to Bitbucket, under the Source menu of the Repo, you will find the folder, and file/s cloned to it.
 
 Now you are ready for cloning the Repo to a production host, and copying this template files, like `flows.json` and other files to Docker instances.  
 
-#### Step 9: Use Ansible to clone the repo from BitBucket & Prepare NodeRed runtime
+#### Step 9: Use Ansible to clone the repo from BitBucket & Prepare Node-RED runtime
 In this step, you can clone the runtime back to the Mac, or another host to test how it will run. I use the standard folder `~/dockerapps/`. Steps to do in Ansible:
 
 - git clone this repo to the target host under `~/.tmp/dbr_nrc01`
 - Create the runtime directory, `~/dockerapps/dbr_nrc01/data`
-- Copy the NodeRed files with Ansible from the `.tmp/dbr_nrc01` folder:
+- Copy the Node-RED files with Ansible from the `.tmp/dbr_nrc01` folder:
 
   - `settings.js` --> `~/dockerapps/dbr_nrc01/data`
   - `flows.json`  --> `~/dockerapps/dbr_nrc01/data/projects/master/`
-  - same for other files required for NodeRed.
+  - same for other files required for Node-RED.
 
 #### Step 10: Point local Mac docker instance back to the ~/Git_bitbucket folder
-Now that all files required to start-up the NodeRed files from the ~/Git_bitbucket folder, the `Dockerfile` used to startup the Mac NodeRed docker instance for `dbr_NRC01` can be pointed to the newly cloned folder.
+Now that all files required to start-up the Node-RED files from the ~/Git_bitbucket folder, the `Dockerfile` used to startup the Mac Node-RED docker instance for `dbr_NRC01` can be pointed to the newly cloned folder.
 
 I have not tested this yet, but this is the next step I will test.
 
@@ -186,14 +186,14 @@ As above, you can recreate a new runtime server from the bitbucket git clone. Ro
 
 During the process I ran into several issues, here are the solutions.
 
-#### NodeRed:  
+#### Node-RED:  
 
-1. **Issue 1: When credentials not sorted** - when NodeRed starts, See Screen 8.
+1. **Issue 1: When credentials not sorted** - when Node-RED starts, See Screen 8.
 
     **Solution 1: Dealing with credentials**
 
-    - [node-red wiki](https://github.com/node-red/node-red/wiki/Design%3A-Encryption-of-credentials)  
-    - [Stack overflow](https://stackoverflow.com/questions/48270905/node-red-node-credentials) by Nick O'Leary.
+    - [Node-RED wiki](https://github.com/nodered/nodered/wiki/Design%3A-Encryption-of-credentials)  
+    - [Stack overflow](https://stackoverflow.com/questions/48270905/nodered-node-credentials) by Nick O'Leary.
 
   Here are the steps you need to resolve this:
 
@@ -230,7 +230,7 @@ During the process I ran into several issues, here are the solutions.
 
 ## Screens used in above examples
 
-- NodeRed:
+- Node-RED:
 
   - **Screen 1: add key**  
   menu: Settings > Git config > add key :  
@@ -272,13 +272,13 @@ During the process I ran into several issues, here are the solutions.
       ![commit history](images/sourcetree_commit.png)  
       .  
 
-- NodeRed:
+- Node-RED:
 
-  - **Screen 8: NodeRed - credentials**  
+  - **Screen 8: Node-RED - credentials**  
 
       ![commit history](images/nodered_credentials.png)  
       .  
-  - **Screen 9: NodeRed - Projects dependencies**
+  - **Screen 9: Node-RED - Projects dependencies**
 
       ![Screen 9](images/nodered_projectsdependencies.png)  
       .

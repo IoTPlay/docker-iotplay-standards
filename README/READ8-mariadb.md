@@ -19,7 +19,7 @@
 
   - Check if port `3306` is running: from db command line: `SHOW GLOBAL VARIABLES LIKE 'PORT'; ` or from Linux: `netstat -tlnp`
 
-  - with NodeRed connected to the mariadb via a 'link', the host field on nodered is the container name `dbr_mariadb_1`
+  - with Node-RED connected to the mariadb via a 'link', the host field on Node-RED is the container name `dbr_mariadb_1`
 
 
 #### HowTo's
