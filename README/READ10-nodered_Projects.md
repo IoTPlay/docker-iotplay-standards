@@ -260,6 +260,8 @@ During the process I ran into several issues, here are the solutions.
       ![commit history](images/nodered_remotebranch.png)  
       .  
 
+- SourceTree:
+
   - **Screen 6: Clone in SourceTree**  
 
       ![commit history](images/sourcetree_clonerepo.png)  
@@ -269,6 +271,9 @@ During the process I ran into several issues, here are the solutions.
 
       ![commit history](images/sourcetree_commit.png)  
       .  
+
+- NodeRed:
+ 
   - **Screen 8: NodeRed - credentials**  
 
       ![commit history](images/nodered_credentials.png)  
