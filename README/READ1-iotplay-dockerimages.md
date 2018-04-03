@@ -1,8 +1,11 @@
-##### Notes on RPi iotplay standards:
+## Notes on RPi iotplay standards
+
+---> Back to the README file with the [Table of Contents](../README.md).
+
 - For `RaspberryPi 2/3's`, As far as possible, docker images are to be built on `arm64v8/alpine`, [link on docker hub](https://hub.docker.com/r/arm64v8/alpine/)
 - Alpine `v3.6`, from `gliderlabs/docker-alpine`, link on [github](https://github.com/gliderlabs/docker-alpine)
 
-##### Other Linux distros vs. Alpine.
+### Other Linux distros vs. Alpine.
 
 1. Alpine does not have useradd, thus use:
 
@@ -33,13 +36,13 @@ My list of Docker Images, and status below:
 
 |#| Base Image                      |Version| Notes                       | URL docker hub
 |-:|--------------------------------|-------|-----------------------------|-------------
-|1|yobasystems/alpine-mariadb       |armhf  | 176MB - too large !!                           |[dockerhub](https://hub.docker.com/r/bianjp/mariadb-alpine/)
+|1|yobasystems/alpine-mariadb       |armhf  | 176MB - too large !!        |[dockerhub](https://hub.docker.com/r/bianjp/mariadb-alpine/)
 |2|bianjp/mariadb-alpine            |latest |                             |[github](https://github.com/bianjp/docker-mariadb-alpine)
 |3|resin/raspberrypi3-alpine        |3.6    |                             |[dockerhub](https://hub.docker.com/r/resin/raspberrypi3-alpine/)
 |4|hypriot/rpi-node                 |6.11   |                             |[dockerhub](https://hub.docker.com/r/hypriot/rpi-node/)
 |5|mhart/alpine-node                |9.3.0  |Minimal Node.js Docker Images|[dockerhub](https://hub.docker.com/r/mhart/alpine-node/)
 |6|golang:alpine                    |       |Official golang on alpine    |[dockerhub](https://hub.docker.com/_/golang/)
-|7|resin/raspberry-pi-alpine-python |latest |Based on resin.io, with Py.                      |[dockerhub](https://hub.docker.com/r/resin/raspberry-pi-alpine-python/)
+|7|resin/raspberry-pi-alpine-python |latest |Based on resin.io, with Py.  |[dockerhub](https://hub.docker.com/r/resin/raspberry-pi-alpine-python/)
 
 
 - So, is the chosen image: `resin/raspberry-pi-alpine-node:0.10.22-slim` ???
@@ -64,3 +67,5 @@ Think about moving image 3 - nodered across to alpine + node.js on resin:
 
 - for an IoT device: [arm64v8/alpine](https://hub.docker.com/r/arm64v8/alpine/)
   > A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!
+
+---> Back to the README file with the [Table of Contents](../README.md).
