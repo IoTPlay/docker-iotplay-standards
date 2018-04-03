@@ -1,5 +1,7 @@
 # Ansible Standards
 
+---> Back to the README file with the [Table of Contents](../README.md).
+
 - Source 1: [ansible-file-layouts](https://leucos.github.io/ansible-files-layout)  
 - Youtube video [Ben's IT lessons: Ansible - A Beginner's Tutorial, Part 1](https://youtu.be/icR-df2Olm8)  
 - Ansible best practices [docs.ansible.com playbooks](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html)  
@@ -193,3 +195,5 @@ This general howto and tips to be moved to a central folder, move it around as w
 > ```
 
 `ansible-playbook example.yml --tags "configuration,packages"`
+
+---> Back to the README file with the [Table of Contents](../README.md).

@@ -1,6 +1,6 @@
 ## General MariaDB Help and HowTo's
 
-Back to the README file with the [Table of Contents](../README.md).
+---> Back to the README file with the [Table of Contents](../README.md).
 
 #### Initiation of Database for Dabar
 - Fix login of initial database, [mariadb](https://mariadb.com/kb/en/library/configuring-mariadb-for-remote-client-access/):
@@ -39,3 +39,5 @@ Back to the README file with the [Table of Contents](../README.md).
 - Problems with stopping the container
   > docker stop --time=30 mariadbtest
     docker kill mariadbtest  
+
+---> Back to the README file with the [Table of Contents](../README.md).

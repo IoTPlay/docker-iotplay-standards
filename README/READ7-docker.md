@@ -1,4 +1,7 @@
 ## General docker help & ToDo's
+
+---> Back to the README file with the [Table of Contents](../README.md).
+
 The ONE readme for docker todo's - move around in folders, keep one, eventually place somewhere central.
 
 ##### Instructions to Run a Container:
@@ -90,8 +93,7 @@ Command examples:
   - docker tag my_image $DOCKER_ID_USER/my_image
   - docker push $DOCKER_ID_USER/my_image
 
-
-
-
 #### Sources
 - Clean up docker [yohanlinyanage blog](http://blog.yohanliyanage.com/2015/05/docker-clean-up-after-yourself/)
+
+---> Back to the README file with the [Table of Contents](../README.md).

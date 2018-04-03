@@ -1,5 +1,7 @@
 ## 1. Ansible Vault / Secrets
 
+---> Back to the README file with the [Table of Contents](../README.md).
+
 - Sources:
   - ansible Vaults in playbooks [docs.ansible.com](http://docs.ansible.com/ansible/latest/playbooks_vault.html)
   - A short tutorial on how to use Vault in your Ansible workflow [Tristan Fisher](https://gist.github.com/tristanfisher/e5a306144a637dc739e7)
@@ -74,3 +76,5 @@ Good answer on storing keys in ansible-vault [stack overflow](https://stackoverf
         mode: 0600
         owner: user
   ```
+
+  ---> Back to the README file with the [Table of Contents](../README.md).

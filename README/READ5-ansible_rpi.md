@@ -1,5 +1,7 @@
 # Setting up Ansible on RPi
 
+---> Back to the README file with the [Table of Contents](../README.md).
+
 https://arnesonium.com/2016/11/installing-ansible-2-2-0-on-a-raspberry-pi/
 
 - Pre-reqs
@@ -38,3 +40,5 @@ mkdir ~/ansibleapps && ~/ansibleapps
 nano /etc/ansible/hosts
   > - [testpi]
       dabar3
+
+---> Back to the README file with the [Table of Contents](../README.md).

@@ -1,6 +1,6 @@
 ## Commands and Howto's of normal git
 
-Back to [README](../README.md)
+---> Back to the README file with the [Table of Contents](../README.md).
 
 TODO - complete.
 
