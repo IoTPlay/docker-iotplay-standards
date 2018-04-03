@@ -1,5 +1,7 @@
 ## Working with NodeRed Projects AND remote repos
 
+---> Back to the README file with the [Table of Contents](../README.md).
+
 ### Introduction
 
 The new feature since NodeRed v0.18.3 Projects has lots of potential, for building NodeRed templates for multiple deploy, such as in the iotplay case where more-than-one clients' use the same flows.  
@@ -274,3 +276,5 @@ During the process I ran into several issues, here are the solutions.
 
       ![Screen 9](images/nodered_projectsdependencies.png)  
       .
+
+---> Back to the README file with the [Table of Contents](../README.md).
