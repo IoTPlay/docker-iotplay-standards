@@ -237,6 +237,15 @@ During the process I ran into several issues, here are the solutions.
   git@bitbucket.org: Permission denied (publickey).
   fatal: Could not read from remote repository.
   ```
+
+  Or, similar:
+
+  ```
+  hg clone git@bitbucket.org:iotplay/client_rhm-rhm_nrc01-master.git /Users/jean/Git_bitbucket/client_rhm/rhm_nrc01/master
+  abort: repository git@bitbucket.org:iotplay/client_rhm-rhm_nrc01-master.git not found!
+  Completed with errors, see above
+  ```
+
   **Solution 1: Step 2**   
   Run `ssh-add ~/.ssh/__default_nodered_client_dbr`.
 
