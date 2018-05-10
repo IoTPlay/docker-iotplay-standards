@@ -269,36 +269,36 @@ During the process I ran into several issues, here are the solutions.
   - **Screen 3: Commit to Remote**  
     menu: Control Panel > history tab > Commit History  
 
-      ![commit history](images/nodered_committoremote.png)  
+      ![Screen 3](images/nodered_committoremote.png)  
       .  
 
   - **Screen 4: Authentication required**  
 
-      ![commit history](images/nodered_authreq.png)  
+      ![Screen 4](images/nodered_authreq.png)  
       .  
 
   - **Screen 5: Authentication required**  
 
-      ![commit history](images/nodered_remotebranch.png)  
+      ![Screen 5](images/nodered_remotebranch.png)  
       .  
 
 - SourceTree:
 
   - **Screen 6: Clone in SourceTree**  
 
-      ![commit history](images/sourcetree_clonerepo.png)  
+      ![Screen 6](images/sourcetree_clonerepo.png)  
       .  
 
   - **Screen 7: Commit in SourceTree**  
 
-      ![commit history](images/sourcetree_commit.png)  
+      ![Screen 7](images/sourcetree_commit.png)  
       .  
 
 - Node-RED:
 
   - **Screen 8: Node-RED - credentials**  
 
-      ![commit history](images/nodered_credentials.png)  
+      ![Screen 8](images/nodered_credentials.png)  
       .  
   - **Screen 9: Node-RED - Projects dependencies**
 
