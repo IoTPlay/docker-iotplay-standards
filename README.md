@@ -23,4 +23,4 @@ Links to several README files thart describes the tools we use, and summaries of
 
 Figure 1: DevOps flow.
 
-![](README/images/DevOps-iotplay-dabar.jpg)
+![](images/DevOps-iotplay-dabar.jpg)
