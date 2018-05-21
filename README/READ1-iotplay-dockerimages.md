@@ -1,23 +1,27 @@
-## Notes on RPi iotplay standards
+# Notes on RPi & Mac IoTpPlay standards
 
 ---> Back to the README file with the [Table of Contents](../README.md).
 
-- For `RaspberryPi 2/3's`, As far as possible, docker images are to be built on `arm64v8/alpine`, [link on docker hub](https://hub.docker.com/r/arm64v8/alpine/)
-- Alpine `v3.6`, from `gliderlabs/docker-alpine`, link on [github](https://github.com/gliderlabs/docker-alpine)
-
-### Other Linux distros vs. Alpine.
-
-1. Alpine does not have useradd, thus use:
-
-  > ARG PUID  
-  > ARG PGID  
-  > RUN addgroup -g ${PGID} abc && \
-    adduser -D -u ${PUID} -G abc abc  
 
 
-2. apt-get does not work on Alpine, see `apk` use here: https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+### The IoTPlay Docker Images
 
-## A Readme on the Images that IoTPlay use and experiment with.
+|#| IoTPlay Image       |Arm8|x86_64| Tgt - Link
+|-|---------------------|----|------|-----------------
+|1| docker private reg. | Y  |  N   | todo
+|2| docker_nginx_arm    | Y  |  N   | [GitHub](https://github.com/IoTPlay/docker_nginx_arm)
+|3| docker_mosquitto    | Y  |  Y   | [GitHub](https://github.com/IoTPlay/docker_mosquitto)
+|4| docker_nodered      | Y  |  Y   | [GitHub](https://github.com/IoTPlay/docker_nodered)
+|5| docker_mariadb      | Y  |  Y   | [GitHub](https://github.com/IoTPlay/docker-mariadb-alpine)
+
+## Notes on the Images
+
+### Design Principles for IoTPlay Images
+
+1. Use published images - that others maintain. 1st price - if they ar publishes on http://hub.docker.com
+2. For `RaspberryPi 2/3's`, As far as possible, docker images are to be built on `arm64v8/alpine`, [link on docker hub](https://hub.docker.com/r/arm64v8/alpine/)
+3. Alpine `v3.6`, from `gliderlabs/docker-alpine`, link on [github](https://github.com/gliderlabs/docker-alpine)
+4. UserID's of the docker image sometimes clash with the host's's IDs. Some special care is required here. Our Node-RED image is such an example.
 
 ### IoTPlay's Images in use
 My list of Docker Images, and status below:
@@ -67,5 +71,17 @@ Think about moving image 3 - nodered across to alpine + node.js on resin:
 
 - for an IoT device: [arm64v8/alpine](https://hub.docker.com/r/arm64v8/alpine/)
   > A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!
+
+### Guidelines to Remember re Other Linux distros vs. Alpine.
+
+1. Alpine does not have useradd, thus use:
+
+```
+RUN addgroup -g ${PGID} abc && \
+    adduser -D -u ${PUID} -G abc abc
+
+```
+2. apt-get does not work on Alpine, see `apk` use here: https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+
 
 ---> Back to the README file with the [Table of Contents](../README.md).

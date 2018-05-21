@@ -1,10 +1,10 @@
 # General ReadMe instructions for iotplay Infrastructure, Docker images and other learnings
 
-These instructions are to drive the IoTPlay standardisation for the RaspberryPi and Mac docker images we use. We use Ansible open source edition as agent-less DevOps tool to build the RPi's, the docker images, containers, and all the processes to run the targeted IoTPlay solutions. We also use the Docker Community Edition.
+These instructions are to drive the IoTPlay standardisation for the RaspberryPi and Mac docker images we use. We use Ansible community edition as agent-less DevOps tool to build the RPi's, the docker images, containers, and all the processes to run the targeted IoTPlay solutions. We also use the Docker Community Edition.
 
 See figure 1 below for the flow we implemented for a client using the tools below.
 
-Links to several README files thart describes the tools we use, and summaries of our learnings, with links on using the tools to build the solutions:
+Links to several README files that describes the tools we use, and summaries of our learnings, with links on using the tools to build the solutions:
 
 |#| README file                                           | Link
 |-|------------------------------------------------------ |------
