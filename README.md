@@ -18,7 +18,8 @@ Links to several README files that describes the tools we use, and summaries of 
 |7| Docker - shortcuts, command, howto's                  |[link](README/READ7-RPi.md)
 |8| MariaDB                                               |[link](README/READ8-mariadb.md)
 |9| git, howto's                                          |[link](README/READ9-git.md)
-|10| Using Node-RED Projects feature for team development |[link](README/READ10-nodered_Projects.md)
+|10| Node-Red - Docker                                    |[link](README/READ10-nodered.md)
+|11| Using Node-RED Projects feature for team development |[link](README/READ11-nodered_Projects.md)
 
 
 Figure 1: DevOps flow.
