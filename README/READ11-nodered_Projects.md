@@ -50,6 +50,9 @@ Several assumptions have been used for this readme:
 #### Step 1:  Create Node-RED keys for remote repos
 
 If you use Docker to start the Node-RED flows - already got Projects working, start it now, and access the admin client.
+
+Copy the keys from your backup folder, if you have created them before, or carry on below.
+
 Setup a remote repo key in Node-RED:
 - From menu option:  
   `Project Settings > Settings > add remote`  
