@@ -55,7 +55,7 @@ Copy the keys from your backup folder, if you have created them before, or carry
 
 Setup a remote repo key in Node-RED:
 - From menu option:  
-  `Project Settings > Settings > add remote`  
+  `Project Settings > Git Config > add remote`  
   'Allows you to create secure connections to remote git repositories.'  
   See **Screen 1: add key** below.  
 
