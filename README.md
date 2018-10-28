@@ -15,7 +15,7 @@ Links to several README files that describes the tools we use, and summaries of 
 |4| Ansible Docker: managing docker                       |[link](README/READ4-ansible_docker.md)
 |5| Ansible on Raspberry Pi                               |[link](README/READ5-ansible_rpi.md)
 |6| Running IoTPlay on Raspberry Pi - instructions        |[link](README/READ6-RPi.md)
-|7| Docker - shortcuts, command, howto's                  |[link](README/READ7-RPi.md)
+|7| Docker - shortcuts, command, howto's                  |[link](README/READ7-docker.md)
 |8| MariaDB                                               |[link](README/READ8-mariadb.md)
 |9| git, howto's                                          |[link](README/READ9-git.md)
 |10| Node-Red - Docker                                    |[link](README/READ10-nodered.md)

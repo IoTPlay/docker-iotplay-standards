@@ -64,6 +64,21 @@ Command examples:
 
 ####### Nice infos & blogs:  
 
+- [Docker File cheat sheet](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index), info on MAINTAINER, RUN, CMD, EXPOSE, ENV, ENTRYPOINT, WORKDIR, ARG
+
+- [Docker RUN vs CMD vs ENTRYPOINT](http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/)  
+
+- (Common Dockerfile Mistakes)[https://developer.atlassian.com/blog/2016/06/common-dockerfile-mistakes/]
+  - Understanding Docker cache
+  - Running apt/apk/yum
+
+  - (9 Common Dockerfile Mistakes)[https://runnable.com/blog/9-common-dockerfile-mistakes]
+    - 1. Running apt-get
+    - 2. Using ADD instead of COPY
+    - 8. Multiple services running in the same container
+    - 9. Using VOLUME in your build process
+    
+
 - [stack overflow](https://stackoverflow.com/questions/26026931/setting-up-a-remote-private-docker-registry)  
 - Official [docs.docker](https://docs.docker.com/registry/deploying/#basic-configuration) with commands like (see the link):  
   - Start the registry automatically  
