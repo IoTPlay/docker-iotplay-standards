@@ -7,7 +7,7 @@
 ## The IoTPlay Docker Images
 
 ### Currently used Images
-|#| Image Used                  |Arm8|x86_64| Source - Link                                                            | Tag & v. used               |
+|#| Image Used                  |Arm8|x86_64| Source - Link                                                            | Tag & version used          |
 |-|-----------------------------|----|----- |--------------------------------------------------------------------------|-----------------------------|
 |1| docker private reg.         | Y  |  N   | todo                                                                     |
 |2| docker_nginx_arm            | Y  |  N   | [GitHub IoTPlay](https://github.com/IoTPlay/docker_nginx_arm)            |
